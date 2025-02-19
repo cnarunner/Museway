@@ -1,5 +1,4 @@
-import Image from "next/image";
-import SearchForm from "@/app/components/SearchForm";
+import SearchForm from "@/components/SearchForm";
 
 export default async function Home({searchParams}: {
     searchParams: Promise<{ query?: string}>
