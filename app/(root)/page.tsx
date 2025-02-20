@@ -14,7 +14,7 @@ export default async function Home({searchParams}: {
             _id: 1,
             title: 'Muse 1',
             description: 'Muse 1 description',
-            image: 'https://picsum.photos/600/900',
+            image: 'https://picsum.photos/300/450',
             category: 'Muse Test'
         },
         {
