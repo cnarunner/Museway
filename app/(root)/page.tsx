@@ -1,5 +1,5 @@
 import SearchForm from "@/components/SearchForm";
-import PostCard from "@/components/PostCard";
+import PostCard, {PostTypeCard} from "@/components/PostCard";
 import {client} from "@/sanity/lib/client";
 import {POST_QUERY} from "@/sanity/lib/queries";
 
