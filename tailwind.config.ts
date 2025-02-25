@@ -18,7 +18,7 @@ const config: Config = {
           "100": "#FFE8F0",
           DEFAULT: "#2baaee",
         },
-        secondary: "#FBE843",
+        secondary: "#fbdc43",
         black: {
           "100": "#333333",
           "200": "#141413",
