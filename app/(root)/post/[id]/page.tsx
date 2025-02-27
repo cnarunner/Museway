@@ -9,7 +9,7 @@ import Image from "next/image";
 import markdownit from "markdown-it";
 import { Skeleton } from "@/components/ui/skeleton";
 import View from "@/components/View";
-import PostCard, { PostTypeCard } from "@/components/PostCard";
+// import PostCard, { PostTypeCard } from "@/components/PostCard";
 
 const md = markdownit();
 
@@ -43,7 +43,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
 
         <section className="section_container">
           <img
-              src={post.image}
+              src={post.image ?? undefined}
               alt="thumbnail"
               className="w-full h-auto rounded-xl"
           />
