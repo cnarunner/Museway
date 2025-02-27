@@ -170,3 +170,70 @@ export type Markdown = string;
 
 export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | SanityAssetSourceData | Post | Slug | Author | Markdown;
 export declare const internalGroqTypeReferenceTo: unique symbol;
+// Source: sanity/lib/queries.ts
+// Variable: POSTS_QUERY
+// Query: *[_type == "post" &&   defined(slug.current) &&   !defined($search) ||   title match $search ||   category match $search ||   author->name match $search] |   order(_createdAt desc) {            _id,            title,            slug,            _createdAt,            author -> {                _id, name, image, bio            },            views,            description,            category,            image        }
+export type POSTS_QUERYResult = Array<{
+  _id: string;
+  title: null;
+  slug: null;
+  _createdAt: string;
+  author: null;
+  views: null;
+  description: null;
+  category: null;
+  image: string | null;
+} | {
+  _id: string;
+  title: string | null;
+  slug: null;
+  _createdAt: string;
+  author: null;
+  views: null;
+  description: string | null;
+  category: null;
+  image: null;
+} | {
+  _id: string;
+  title: string | null;
+  slug: Slug | null;
+  _createdAt: string;
+  author: {
+    _id: string;
+    name: string | null;
+    image: string | null;
+    bio: string | null;
+  } | null;
+  views: number | null;
+  description: string | null;
+  category: string | null;
+  image: string | null;
+}>;
+// Variable: POST_BY_ID_QUERY
+// Query: *[_type == "post" && _id == $id][0]{    _id,    title,    slug,    _createdAt,    author -> {      _id, name, username, image, bio    },    views,    description,    category,    image    }
+export type POST_BY_ID_QUERYResult = {
+  _id: string;
+  title: string | null;
+  slug: Slug | null;
+  _createdAt: string;
+  author: {
+    _id: string;
+    name: string | null;
+    username: string | null;
+    image: string | null;
+    bio: string | null;
+  } | null;
+  views: number | null;
+  description: string | null;
+  category: string | null;
+  image: string | null;
+} | null;
+
+// Query TypeMap
+import "@sanity/client";
+declare module "@sanity/client" {
+  interface SanityQueries {
+    "*[_type == \"post\" && \n  defined(slug.current) && \n  !defined($search) || \n  title match $search || \n  category match $search || \n  author->name match $search] | \n  order(_createdAt desc) {\n            _id,\n            title,\n            slug,\n            _createdAt,\n            author -> {\n                _id, name, image, bio\n            },\n            views,\n            description,\n            category,\n            image\n        }": POSTS_QUERYResult;
+    "*[_type == \"post\" && _id == $id][0]{\n    _id,\n    title,\n    slug,\n    _createdAt,\n    author -> {\n      _id, name, username, image, bio\n    },\n    views,\n    description,\n    category,\n    image\n    }": POST_BY_ID_QUERYResult;
+  }
+}

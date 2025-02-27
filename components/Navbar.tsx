@@ -15,7 +15,7 @@ const Navbar = async () => {
                 <div className={"flex items-center gap-5 text-black"}>
                     {session && session?.user ? (  // If session exists and session has a user, then render the following.
                         <>
-                            <Link href={"/startup/create"}>
+                            <Link href={"/post/create"}>
                                 <span>Create</span>
                             </Link>
 

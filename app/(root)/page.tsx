@@ -15,7 +15,7 @@ export default async function Home({
 
   return (
     <>
-      <section className={"pink_container"}>
+      <section className={"blue_container"}>
         <h1 className={"heading"}>
           Post your muse! <br /> We would love to see it!
         </h1>
